@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ArrayOperations</string>
+    <string name="textViewTitle">Array Operations</string>
+    <string name="textViewArray" />
+    <string name="buttonNewNumbers">New Numbers</string>
+    <string name="buttonTotals">Totals</string>
+    <string name="buttonSortAscending">Sort Ascending</string>
+    <string name="buttonSortDescending">Sort Descending</string>
+    <string name="textViewTotalsTitle">Array Operations Totals</string>
+    <string name="textViewSum">Sum of All Array Elements:</string>
+    <string name="textViewAvg">Average of All Array Elements:</string>
+    <string name="textViewLargest">Largest of All Array Elements:</string>
+    <string name="textViewSmallest">Smallest of All Array Elements:</string>
+    <string name="textViewRange">Range of All Array Elements:</string>
+    <string name="textViewSumNumber" />
+    <string name="textViewAvgNumber" />
+    <string name="textViewLargeNumber" />
+    <string name="textViewSmallNumber" />
+    <string name="textViewRangeNumber" />
+    <string name="buttonBackToMain">Return</string>
+</resources>

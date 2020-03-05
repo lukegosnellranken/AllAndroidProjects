@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#b3b3b3"
+    tools:context="com.gmail.gosnellwebdesign.mockform.MainActivity">
+
+    <!--NAME-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+    >
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="100dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:textAlignment="center"
+            android:textColor="#000000"
+            />
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="200dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:width="100dp"
+        />
+    </LinearLayout>
+
+
+    <!--ADDRESS-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/textViewAddress"
+            android:layout_width="100dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/address"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:textAlignment="center"
+            android:textColor="#000000"
+            />
+
+        <EditText
+            android:id="@+id/editTextAddress"
+            android:layout_width="200dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:width="100dp"
+            />
+    </LinearLayout>
+
+
+    <!--City-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/textViewCity"
+            android:layout_width="100dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/city"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:textAlignment="center"
+            android:textColor="#000000"
+            />
+
+        <EditText
+            android:id="@+id/editTextCity"
+            android:layout_width="200dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:width="100dp"
+            />
+    </LinearLayout>
+
+
+    <!--State-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/textViewState"
+            android:layout_width="100dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/state"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:textAlignment="center"
+            android:textColor="#000000"
+            />
+
+        <Spinner
+            android:id="@+id/spinnerState"
+            android:layout_width="200dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:width="100dp"
+            />
+    </LinearLayout>
+
+
+    <!--Zipcode-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/textViewZipcode"
+            android:layout_width="100dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/zipcode"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:textAlignment="center"
+            android:textColor="#000000"
+            />
+
+        <EditText
+            android:id="@+id/editTextZipcode"
+            android:layout_width="200dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:width="100dp"
+            />
+    </LinearLayout>
+
+
+    <!--Gender-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/textViewGender"
+            android:layout_width="137dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/gender"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+                <!--Radio buttons -->
+                <RadioGroup
+                    android:id="@+id/radioGroupGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonMale"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/male"></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/radioButtonFemale"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/female"></RadioButton>
+                </RadioGroup>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!--Shift-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/textViewShift"
+            android:layout_width="137dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/shift"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--Radio buttons -->
+            <RadioGroup
+                android:id="@+id/radioGroupShift"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/checkBoxMorning"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/morning"></CheckBox>
+
+                <CheckBox
+                    android:id="@+id/checkBoxAfternoon"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/afternoon"></CheckBox>
+
+                <CheckBox
+                    android:id="@+id/checkBoxEvening"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/evening"></CheckBox>
+            </RadioGroup>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!--Switch-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/textViewSettings"
+            android:layout_width="100dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:textAlignment="center"
+            android:textColor="#000000"
+            />
+
+        <Switch
+            android:id="@+id/switchSettings"
+            android:layout_width="20dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="150dp"
+            android:ems="10"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:width="100dp"
+            />
+    </LinearLayout>
+
+
+    <!--Confirm-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        >
+
+        <ImageView
+            android:id="@+id/imageViewConfirm"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/confirm" />
+    </LinearLayout>
+
+
+</LinearLayout>

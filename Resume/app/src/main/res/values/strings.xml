@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Resume</string>
+    <string name="textViewTitle">Luke Gosnell</string>
+    <string name="buttonEducation">Education</string>
+    <string name="buttonWorkExperience">Work Experience</string>
+    <string name="buttonCallMe">Call Me</string>
+    <string name="buttonEmail">Email Me</string>
+    <string name="textViewEducationTitle">Education</string>
+    <string name="textViewEducationInfo" />
+    <string name="buttonEducationBackToMain">Main Menu</string>
+    <string name="textViewWorkExperienceTitle">Work Experience</string>
+    <string name="textViewWorkExperienceInfo" />
+    <string name="buttonWorkExperienceBackToMain">Main Menu</string>
+</resources>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="mainTitle">Andoid Calculator</string>
+    <string name="textViewPlus">+</string>
+    <string name="textViewAnswer" />
+    <string name="buttonCalculate">Calculate</string>
+    <string name="buttonClear">Clear</string>
+    <string-array name ="operators">
+        <item>+</item>
+        <item>-</item>
+        <item>*</item>
+        <item>/</item>
+        <item>%</item>
+    </string-array>
+</resources>

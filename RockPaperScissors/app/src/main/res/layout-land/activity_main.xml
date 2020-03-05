@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#33cc33"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewTitleMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/titleMain"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <TextView
+        android:id="@+id/textViewShoot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/shoot"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitleMain" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutImages"
+        android:layout_width="683dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewShoot">
+
+        <ImageView
+            android:id="@+id/imageViewRock"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/rock" />
+
+        <ImageView
+            android:id="@+id/imageViewPaper"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/paper" />
+
+        <ImageView
+            android:id="@+id/imageViewScissors"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/scissors" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAllText"
+        android:layout_width="579dp"
+        android:layout_height="171dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="136dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutImages">
+
+
+        <!--User Choice -->
+        <LinearLayout
+            android:id="@+id/linearLayoutUserChoices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewUserChoice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userChoice"
+                android:textColor="#000000"
+                android:textSize="25dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textViewUserChoiceDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="25dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+        <!--Computer Choice -->
+        <LinearLayout
+            android:id="@+id/linearLayoutComputerChoices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewComputerChoice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/computerChoice"
+                android:textColor="#000000"
+                android:textSize="25dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textViewComputerChoiceDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="25dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/textViewWinnerIs"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/winner"
+            android:textColor="#000000"
+            android:textSize="25dp">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonTotals"
+        android:layout_width="154dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/buttonTotals"
+        app:layout_constraintStart_toEndOf="@+id/textViewTitleMain"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewWinner"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="260dp"
+        android:layout_marginBottom="24dp"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutAllText"
+        app:layout_constraintVertical_bias="1.0">
+
+    </TextView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

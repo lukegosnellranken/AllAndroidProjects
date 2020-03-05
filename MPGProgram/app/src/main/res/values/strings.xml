@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MPGProgram</string>
+    <string name="mainTitle" />
+    <string name="mainTitle1">Luke\'s Miles Per Gallon (MPG) Program 1</string>
+    <string name="calculateButton">Calculate</string>
+    <string name="clearButton">Clear</string>
+    <string name="editMilesDriven">Miles Driven</string>
+    <string name="editGallonsUsed">Gallons Used</string>
+</resources>

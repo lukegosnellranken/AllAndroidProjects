@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RectangleCalculator</string>
+    <string name="textViewTitle">Rectangle Calculator</string>
+    <string name="editTextRectWidth">Width</string>
+    <string name="editTextRectHeight">Height</string>
+    <string name="textViewAreaTitle">Area:</string>
+    <string name="textViewPerimeterTitle">Perimeter:</string>
+    <string name="textViewAreaValue" />
+    <string name="textViewPerimeterValue" />
+    <string name="buttonCalculate">Calculate</string>
+    <string name="buttonClear">Clear</string>
+</resources>

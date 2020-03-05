@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BMICalculator</string>
+    <string name="textTitle">BMI Calculator</string>
+    <string name="textHeight">Height</string>
+    <string name="textWeight">Weight</string>
+    <string name="buttonCalculate">CALCULATE</string>
+    <string name="buttonClear">CLEAR</string>
+    <string name="buttonINDSTATS">IND STATS</string>
+    <string name="buttoNGRPSTATS">GRP STATS</string>
+    <string name="textTitleINDSTATS">Individual BMI Stats</string>
+    <string name="textViewResults" />
+    <string name="textTitleGRPSTATS">Group BMI Stats</string>
+</resources>

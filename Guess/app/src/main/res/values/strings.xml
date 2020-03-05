@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Guess</string>
+    <string name="mainTitle">Guessing Game</string>
+    <string name="editEnterGuess">Enter Guess</string>
+    <string name="buttonSubmit">Submit</string>
+    <string name="buttonClear">Clear</string>
+    <string name="textResult" />
+    <string name="textInvalid" />
+    <string name="editTextEnterGuess">Enter Guess</string>
+</resources>

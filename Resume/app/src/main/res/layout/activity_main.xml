@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B5D7F3"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageViewLuke"
+        android:layout_width="300dp"
+        android:layout_height="244dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewMainTitle"
+        app:srcCompat="@drawable/me" />
+
+    <Button
+        android:id="@+id/buttonEducation"
+        android:layout_width="157dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/buttonEducation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLuke" />
+
+    <Button
+        android:id="@+id/buttonWorkExperience"
+        android:layout_width="158dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/buttonWorkExperience"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEducation" />
+
+    <Button
+        android:id="@+id/buttonCallMe"
+        android:layout_width="160dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/buttonCallMe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonWorkExperience" />
+
+    <Button
+        android:id="@+id/buttonEmailMe"
+        android:layout_width="156dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/buttonEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCallMe" />
+
+    <ImageView
+        android:id="@+id/imageViewMainTitle"
+        android:layout_width="339dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logolukegosnell4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

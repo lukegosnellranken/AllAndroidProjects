@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Measurement</string>
+    <string name="textViewTitle">Measurement Converter</string>
+    <string name="textViewConversionTitle">Miles to Kilometers Conversion</string>
+    <string name="textViewValue" />
+    <string name="textViewOutput" />
+    <string name="editTextUserValue">Enter value</string>
+    <string name="buttonMilesToKilo">Convert M to K</string>
+    <string name="buttonKiloToMiles">Convert K to M</string>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FortuneTeller</string>
+    <string name="textViewTitle">Fortune Teller</string>
+    <string name="buttonReveal">Click To Reveal Your Fortune</string>
+    <string name="textViewOpenCookieTitle">Here\'s Your Fortune!</string>
+    <string name="textViewFortune" />
+    <string name="buttonBackToMain">Return</string>
+</resources>

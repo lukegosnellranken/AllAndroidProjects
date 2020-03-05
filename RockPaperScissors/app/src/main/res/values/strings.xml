@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RockPaperScissors</string>
+    <string name="titleMain">Rock Paper Scissors</string>
+    <string name="computerChoice">COMPUTER: </string>
+    <string name="userChoice">USER: </string>
+    <string name="winner">The Winner Is: </string>
+    <string name="titleTotals">Total Wins</string>
+    <string name="ties">Ties: </string>
+    <string name="shoot">...Shoot!</string>
+    <string name="buttonTotals">Totals</string>
+    <string name="buttonBackToMain">Return</string>
+</resources>
