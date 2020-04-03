@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="album_titles">
+        <item>American Football</item>
+        <item>Bluffers Guide to the Flight Deck</item>
+        <item>Close to the Edge</item>
+        <item>Finally We Are No One</item>
+        <item>Hosono House</item>
+        <item>Odessey and Oracle</item>
+        <item>Pet Sounds</item>
+        <item>Rubber Soul</item>
+        <item>Sleep Cycle</item>
+        <item>Shadow of Marlboro Man</item>
+        <item>Spirit Theyve Vanished</item>
+        <item>The College Dropout</item>
+        <item>What We Did on Our Holiday</item>
+    </string-array>
+</resources>

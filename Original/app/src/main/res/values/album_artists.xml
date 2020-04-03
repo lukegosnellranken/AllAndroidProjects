@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="album_artists">
+        <item>American Football</item>
+        <item>Flotation Toy Warning</item>
+        <item>Yes</item>
+        <item>Mum</item>
+        <item>Haruomi Hosono</item>
+        <item>The Zombies</item>
+        <item>The Beach Boys</item>
+        <item>The Beatles</item>
+        <item>Deakin</item>
+        <item>The Savage Young Taterbug</item>
+        <item>Animal Collective</item>
+        <item>Kanye West</item>
+        <item>Fairport Convention</item>
+    </string-array>
+</resources>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">GuessingGameRanked</string>
+    <string name="textViewMainTitle">Guessing Game 2</string>
+    <string name="editTextGuess">Enter a guess between 1 - 100 here</string>
+    <string name="buttonSubmit">Submit</string>
+    <string name="buttonClear">Clear</string>
+    <string name="buttonRank">Rank</string>
+    <string name="buttonTotals">Totals</string>
+    <string name="textViewResponse" />
+    <string name="textViewInvalid" />
+    <string name="textViewRanksTitle">Rank</string>
+    <string name="buttonRanksBackToMain">Main Menu</string>
+    <string name="textViewTotalsTitle">Totals</string>
+    <string name="textViewNovices">Novices:</string>
+    <string name="textViewNovicesNumber" />
+    <string name="textViewSemipros">Semi-pros:</string>
+    <string name="textViewSemiprosNumber" />
+    <string name="textViewExperts">Experts:</string>
+    <string name="textViewExpertsNumber" />
+    <string name="buttonTotalsBackToMain">Main Menu</string>
+    <string name="textViewRankStatus" />
+</resources>

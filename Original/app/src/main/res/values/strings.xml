@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Original</string>
+    <string name="art">Art</string>
+    <string name="title">Title</string>
+    <string name="artist">Artist</string>
+    <string name="Return">Return</string>
+    <string name="mainTitle">Luke\'s Album Picks</string>
+</resources>
