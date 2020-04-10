@@ -143,13 +143,21 @@ public class MainActivity extends AppCompatActivity {
             }
         } else if (inputtedMonth == 2) {
             if ((inputtedDay < MINDAY) || (inputtedDay > MAXDAYTWENTYEIGHT)) {
-                isDateValid = false;
-                //Build toast
-                Toast toast = Toast.makeText(getApplicationContext(), INVALIDINPUT, Toast.LENGTH_LONG);
-                toast.show();
-                editTextDay.setText("");
-                editTextDay.requestFocus();
-                return;
+
+                if(inputtedDay == MAXDAYTWENTYNINE){
+                    if ((inputtedYear%4 == 0 && inputtedYear%100!=0) || inputtedYear%400 == 0){
+                        // Continue validation, do nothing
+                    }
+                    else {
+                        isDateValid = false;
+                        //Build toast
+                        Toast toast = Toast.makeText(getApplicationContext(), INVALIDINPUT, Toast.LENGTH_LONG);
+                        toast.show();
+                        editTextDay.setText("");
+                        editTextDay.requestFocus();
+                        return;
+                    }
+                }
             }
         } else if ((inputtedMonth == 4) || (inputtedMonth == 6) || (inputtedMonth == 9) || (inputtedMonth == 11)) {
             if ((inputtedDay < MINDAY) || (inputtedDay > MAXDAYTHIRTY)) {
