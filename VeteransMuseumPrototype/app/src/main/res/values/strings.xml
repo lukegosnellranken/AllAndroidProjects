@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">VeteransMuseumPrototype</string>
+    <string name="textViewTitleMain2">Veterans Museum</string>
+    <string name="textViewTitleMain1">St. Charles County</string>
+    <string name="buttonScanCode">Scan QR Code</string>
+    <string name="buttonArchives">Enter the Archives</string>
+    <string name="buttonWebsite">Visit our Website</string>
+    <string name="textViewTitleArchive3">Archives</string>
+    <string name="textViewBack">Back</string>
+
+
+    <string name="listItemTitle">Title</string>
+    <string name="listItemText">Default Text</string>
+</resources>
