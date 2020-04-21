@@ -1,0 +1,148 @@
+<resources>
+    <string name="app_name">Zodiac</string>
+    <string name="textViewTitle">Find Your Zodiac Sign</string>
+    <string name="textViewSlash">/</string>
+    <string name="buttonZodiac">Zodiac</string>
+    <string name="buttonClear">Clear</string>
+    <string name="textViewYourSign">Your sign is</string>
+    <string name="textViewBirthday">Birthday:</string>
+    <string name="textViewBirthDate">Birth Date:</string>
+    <string name="textViewAge">Age:</string>
+    <string name="textViewAbout" />
+    <string name="textViewUserBirthDate" />
+    <string name="textViewUserBirthday" />
+    <string name="textViewUserAge" />
+    <string name="buttonBack">Back</string>
+
+    <string name="aquariusInfo">
+    Friendly and humanitarian
+    Honest and loyal
+    Original and inventive
+    Independent and intellectual
+
+    Intractable and contrary
+    Perverse and unpredictable
+    Unemotional and detached
+    </string>
+
+    <string name="piscesInfo">
+    Imaginative and sensitive
+    Compassionate and kind
+    Selfless and unworldly
+    Intuitive and sympathetic
+
+    Escapist and idealistic
+    Secretive and vague
+    Weak-willed and easily led
+    </string>
+
+    <string name="ariesInfo">
+    Adventurous and energetic
+    Pioneering and courageous
+    Enthusiastic and confident
+    Dynamic and quick-witted
+
+    Selfish and quick-tempered
+    Impulsive and impatient
+    Foolhardy and daredevil
+    </string>
+
+    <string name="taurusInfo">
+    Patient and reliable
+    Warmhearted and loving
+    Persistent and determined
+    Placid and security loving
+
+    Jealous and possessive
+    Resentful and inflexible
+    Self-indulgent and greedy
+    </string>
+
+    <string name="geminiInfo">
+    Adaptable and versatile
+    Communicative and witty
+    Intellectual and eloquent
+    Youthful and lively
+
+    Nervous and tense
+    Superficial and inconsistent
+    Cunning and inquisitive
+    </string>
+
+    <string name="cancerInfo">
+    Emotional and loving
+    Intuitive and imaginative
+    Shrewd and cautious
+    Protective and sympathetic
+
+    Changeable and moody
+    Overemotional and touchy
+    Clinging and unable to let go
+    </string>
+
+    <string name="leoInfo">
+    Generous and warmhearted
+    Creative and enthusiastic
+    Broad-minded and expansive
+    Faithful and loving
+
+    Pompous and patronizing
+    Bossy and interfering
+    Dogmatic and intolerant
+    </string>
+
+    <string name="virgoInfo">
+    Modest and shy
+    Meticulous and reliable
+    Practical and diligent
+    Intelligent and analytical
+
+    Fussy and a worrier
+    Overcritical and harsh
+    Perfectionist and conservative
+    </string>
+
+    <string name="libraInfo">
+    Diplomatic and urbane
+    Romantic and charming
+    Easygoing and sociable
+    Idealistic and peaceable
+
+    Indecisive and changeable
+    Gullible and easily influenced
+    Flirtatious and self-indulgent
+    </string>
+
+    <string name="scorpioInfo">
+    Determined and forceful
+    Emotional and intuitive
+    Powerful and passionate
+    Exciting and magnetic
+
+    Jealous and resentful
+    Compulsive and obsessive
+    Secretive and obstinate
+    </string>
+
+    <string name="sagitariusInfo">
+    Optimistic and freedom-loving
+    Jovial and good-humored
+    Honest and straightforward
+    Intellectual and philosophical
+
+    Blindly optimistic and careless
+    Irresponsible and superficial
+    Tactless and restless
+    </string>
+
+    <string name="capricornInfo">
+    Practical and prudent
+    Ambitious and disciplined
+    Patient and careful
+    Humorous and reserved
+
+    Pessimistic and fatalistic
+    Miserly and grudging
+    </string>
+    <string name="textViewEnterBirthday">Enter your birthday</string>
+</resources>

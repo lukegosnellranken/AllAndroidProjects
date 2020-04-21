@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3EDD2"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="@string/textViewTitle"
+        android:textColor="#302B2B"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112" />
+
+    <EditText
+        android:id="@+id/editTextMonth"
+        android:layout_width="59dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="84dp"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:inputType="numberSigned"
+        android:nextFocusDown="@+id/editTextMonth"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+    <EditText
+        android:id="@+id/editTextDay"
+        android:layout_width="59dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="87dp"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:inputType="numberSigned"
+        android:nextFocusDown="@+id/editTextYear"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/textViewSlash1"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+    <EditText
+        android:id="@+id/editTextYear"
+        android:layout_width="82dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="56dp"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:inputType="numberSigned"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+    <TextView
+        android:id="@+id/textViewSlash1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="86dp"
+        android:text="@string/textViewSlash"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/editTextMonth"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+    <TextView
+        android:id="@+id/textViewSlash2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="86dp"
+        android:text="@string/textViewSlash"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/editTextDay"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+    <Button
+        android:id="@+id/buttonZodiac"
+        android:layout_width="195dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="casual"
+        android:text="@string/buttonZodiac"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="196dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="328dp"
+        android:fontFamily="casual"
+        android:text="@string/buttonClear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDay" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="casual"
+        android:text="@string/textViewEnterBirthday"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="375dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDay"
+        app:srcCompat="@drawable/constellations" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
