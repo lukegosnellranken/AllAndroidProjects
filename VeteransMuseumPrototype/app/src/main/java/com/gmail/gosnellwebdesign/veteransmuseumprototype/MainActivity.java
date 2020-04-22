@@ -30,12 +30,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        buttonArchives.setOnClickListener(new View.OnClickListener() {
+        /*buttonArchives.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), ArchivesActivity.class));
             }
-        });
+        });*/
 
         buttonWebsite.setOnClickListener(new View.OnClickListener() {
             @Override

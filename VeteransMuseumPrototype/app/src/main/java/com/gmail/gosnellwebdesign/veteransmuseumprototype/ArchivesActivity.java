@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+/*
 public class ArchivesActivity extends AppCompatActivity {
     RecyclerView rvPrototype;
 
@@ -18,11 +19,12 @@ public class ArchivesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_achives);
         rvPrototype = findViewById(R.id.rvPrototype);
 
-        s1 = getResources().getStringArray(R.array.album_titles);
-        s2 = getResources().getStringArray(R.array.album_artists);
+        //s1 = getResources().getStringArray(R.array.album_titles);
+        //s2 = getResources().getStringArray(R.array.album_artists);
 
         MyAdapter myAdapter = new MyAdapter(this, s1, s2);
         rvPrototype.setAdapter(myAdapter);
         rvPrototype.setLayoutManager(new LinearLayoutManager(this));
     }
 }
+*/
