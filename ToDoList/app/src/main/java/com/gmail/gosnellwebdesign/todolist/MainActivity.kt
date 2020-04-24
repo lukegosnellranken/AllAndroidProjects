@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         var todos = prefs.getStringSet(getString(R.string.TODO_STRINGS), setOf())?.toMutableSet()
 
         layoutManager = LinearLayoutManager(this)
-        recyclerView.LayoutManager = layoutManager
+        recyclerView.layoutManager = layoutManager
         if (todos != null) {
             adapter = ToDoAdapter(todos.toList())
         }
