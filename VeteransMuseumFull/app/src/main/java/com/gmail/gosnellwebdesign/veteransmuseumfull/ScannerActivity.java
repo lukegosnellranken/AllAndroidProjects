@@ -1,4 +1,4 @@
-package com.gmail.gosnellwebdesign.veteransmuseumprototype;
+package com.gmail.gosnellwebdesign.veteransmuseumfull;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +27,7 @@ public class ScannerActivity extends AppCompatActivity {
     CodeScanner codeScanner;
     CodeScannerView scannerView;
     TextView textViewQRResult;
+    String codeString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class ScannerActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         textViewQRResult.setText(result.getText());
+                        codeString = result.getText();
                         processQRResult();
                     }
                 });
@@ -89,7 +91,7 @@ public class ScannerActivity extends AppCompatActivity {
 
         //Send code to new activity, process it there
         Intent i = new Intent(getApplicationContext(), ScannerResultActivity.class);
-        i.putExtra("QRCode",textViewQRResult.getText());
+        i.putExtra("QRCode", codeString);
         startActivity(i);
     }
 }
