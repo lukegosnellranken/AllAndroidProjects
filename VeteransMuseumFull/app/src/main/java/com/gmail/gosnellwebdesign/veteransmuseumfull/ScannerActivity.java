@@ -37,13 +37,15 @@ public class ScannerActivity extends AppCompatActivity {
         codeScanner = new CodeScanner(this, scannerView);
         textViewQRResult = findViewById(R.id.textViewQRResult);
 
+        textViewQRResult.setText("");
+
         codeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
             public void onDecoded(@NonNull final Result result) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        textViewQRResult.setText(result.getText());
+                        //textViewQRResult.setText(result.getText());
                         codeString = result.getText();
                         processQRResult();
                     }

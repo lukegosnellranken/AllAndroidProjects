@@ -5,81 +5,55 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
-import java.util.Map;
-
 public class ScannerResultActivity extends AppCompatActivity {
 
-    TextView title;
-    WebView content;
     ProgressDialog progressDialog;
-    Gson gson;
-    Map<String, Object> mapPost;
-    Map<String, Object> mapTitle;
-    Map<String, Object> mapContent;
+
+    TextView title;
+    WebView webView;
+    int postID;
+
+    final String INVALIDCODE = "Invalid Code. Please Try again!";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scanner_result);
+        setContentView(R.layout.activity_postdetails);
 
         //Variables
+        webView = (WebView) findViewById(R.id.postwebview);
+        webView.getSettings().setJavaScriptEnabled(true);
 
         Intent intent = getIntent();
-        String codeString = intent.getExtras().getString("codeString");
-        final String id = "67";
+        String codeString = intent.getStringExtra("QRCode");
+        //final String id = "67";
 
-        /*if (codeString.equals("XXXXXX")){
-            post id = "XXX"
+        //Toast.makeText(ScannerResultActivity.this, codeString, Toast.LENGTH_LONG).show();
 
-            imageResult.setImageResource(database result);
-            textViewResult.setText(database result);
-        }*/
+        if (codeString.equals("sturhahn")){
+            //postID = 174;
+            webView.loadUrl("http://stcharlescountyveteransmuseum.org/storiesarchive/cpl-roland-bo-sturhahn/");
+            // to open webview inside app -- otherwise It will open url in device browser
+            webView.setWebViewClient(new WebViewClient());
+        }
+        else if (codeString.equals("prevedel")){
+            //postID = 174;
+            webView.loadUrl("http://stcharlescountyveteransmuseum.org/storiesarchive/sgt-charles-f-prevedel/");
+            // to open webview inside app -- otherwise It will open url in device browser
+            webView.setWebViewClient(new WebViewClient());
+        }
+        else{
+            Toast.makeText(ScannerResultActivity.this, INVALIDCODE, Toast.LENGTH_LONG).show();
+            Intent i = new Intent(getApplicationContext(), ScannerActivity.class);
+            startActivity(i);
+        }
 
-        title = findViewById(R.id.textViewPostTitle);
-        content = findViewById(R.id.webViewPostContent);
-
-        progressDialog = new ProgressDialog(ScannerResultActivity.this);
-        progressDialog.setMessage("Loading...");
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.show();
-
-        String url = "http://www.thejavaprogrammer.com/wp-json/wp/v2/posts/"+id+"?fields=title,content";
-
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String s) {
-                gson = new Gson();
-                mapPost = (Map<String, Object>) gson.fromJson(s, Map.class);
-                mapTitle = (Map<String, Object>) mapPost.get("title");
-                mapContent = (Map<String, Object>) mapPost.get("content");
-
-                title.setText(mapTitle.get("rendered").toString());
-                content.loadData(mapContent.get("rendered").toString(),"text/html","UTF-8");
-
-                progressDialog.dismiss();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                progressDialog.dismiss();
-                Toast.makeText(ScannerResultActivity.this, id, Toast.LENGTH_LONG).show();
-            }
-        });
-
-        RequestQueue rQueue = Volley.newRequestQueue(ScannerResultActivity.this);
-        rQueue.add(request);
-
-
+        //  title.setText( MainActivity.mListPost.get(position).getTitle().getRendered());
     }
 }

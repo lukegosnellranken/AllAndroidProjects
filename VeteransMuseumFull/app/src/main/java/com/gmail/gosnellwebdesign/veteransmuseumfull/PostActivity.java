@@ -33,6 +33,7 @@ public class PostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
         final String id = getIntent().getExtras().getString("id");
+        String errortest = "error test";
 
         title = (TextView) findViewById(R.id.title);
         content = (WebView)findViewById(R.id.content);

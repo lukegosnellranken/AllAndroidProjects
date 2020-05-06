@@ -1,85 +1,95 @@
 package com.gmail.gosnellwebdesign.veteransmuseumfull;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.app.ProgressDialog;
-import android.content.Intent;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
-
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ArchiveActivity extends AppCompatActivity {
 
-    String url = "http://www.thejavaprogrammer.com/wp-json/wp/v2/posts?filter[posts_per_page]=10&fields=id,title";
-    List<Object> list;
-    Gson gson;
-    ProgressDialog progressDialog;
-    ListView postList;
-    Map<String,Object> mapPost;
-    Map<String,Object> mapTitle;
-    int postID;
-    String postTitle[];
+    private RecyclerView recyclerView;
+    private ProgressBar progressBar;
+    private LinearLayoutManager mLayoutManager;
+    private ArrayList<Model> list;
+    private RecyclerViewAdapter adapter;
 
+    private String baseURL = "http://www.stcharlescountyveteransmuseum.org";
+
+    public static List<WPPost> mListPost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_archive);
-        postList = (ListView)findViewById(R.id.postList);
-        progressDialog = new ProgressDialog(ArchiveActivity.this);
-        progressDialog.setMessage("Loading...");
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.show();
 
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
+
+        mLayoutManager = new LinearLayoutManager(ArchiveActivity.this, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(mLayoutManager);
+
+        list = new ArrayList<Model>();
+        /// call retrofill
+        getRetrofit();
+
+        adapter = new RecyclerViewAdapter( list, ArchiveActivity.this);
+
+        recyclerView.setAdapter(adapter);
+
+    }
+    public void getRetrofit(){
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(baseURL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetrofitArrayApi service = retrofit.create(RetrofitArrayApi.class);
+        Call<List<WPPost>>  call = service.getPostInfo();
+
+        call.enqueue(new Callback<List<WPPost>>() {
             @Override
-            public void onResponse(String s) {
-                gson = new Gson();
-                list = (List) gson.fromJson(s, List.class);
-                postTitle = new String[list.size()];
+            public void onResponse(Call<List<WPPost>> call, Response<List<WPPost>> response) {
+                Log.e("mainactivyt", " response "+ response.body());
+                mListPost = response.body();
+                progressBar.setVisibility(View.GONE);
+                for (int i=0; i<response.body().size();i++){
+                    Log.e("main ", " title "+ response.body().get(i).getTitle().getRendered() + " "+
+                            response.body().get(i).getId());
 
-                for(int i=0;i<list.size();++i){
-                    mapPost = (Map<String,Object>)list.get(i);
-                    mapTitle = (Map<String, Object>) mapPost.get("title");
-                    postTitle[i] = (String) mapTitle.get("rendered");
+                    String tempdetails =  response.body().get(i).getExcerpt().getRendered().toString();
+                    tempdetails = tempdetails.replace("<p>","");
+                    tempdetails = tempdetails.replace("</p>","");
+                    tempdetails = tempdetails.replace("[&hellip;]","");
+
+                    list.add( new Model( Model.IMAGE_TYPE,  response.body().get(i).getTitle().getRendered(),
+                            tempdetails,
+                            response.body().get(i).getLinks().getWpFeaturedmedia().get(0).getHref())  );
+
                 }
+                adapter.notifyDataSetChanged();
 
-                postList.setAdapter(new ArrayAdapter(ArchiveActivity.this,android.R.layout.simple_list_item_1,postTitle));
-                progressDialog.dismiss();
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(ArchiveActivity.this, "Some error occurred", Toast.LENGTH_LONG).show();
+            public void onFailure(Call<List<WPPost>> call, Throwable t) {
+
             }
         });
 
-        RequestQueue rQueue = Volley.newRequestQueue(ArchiveActivity.this);
-        rQueue.add(request);
-
-        postList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mapPost = (Map<String,Object>)list.get(position);
-                postID = ((Double)mapPost.get("id")).intValue();
-
-                Intent intent = new Intent(getApplicationContext(),PostActivity.class);
-                intent.putExtra("id", ""+postID);
-                startActivity(intent);
-            }
-        });
+    }
+    public static List<WPPost> getList(){
+        return  mListPost;
     }
 }
