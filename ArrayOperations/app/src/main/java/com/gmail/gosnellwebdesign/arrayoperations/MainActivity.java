@@ -14,7 +14,7 @@ import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Program variables
+    // Program variables
     TextView textViewArray;
     Button buttonSortAscending;
     Button buttonSortDescending;
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Set variables to view elements
         textViewArray = findViewById(R.id.textViewArray);
         buttonSortAscending = findViewById(R.id.buttonSortAscending);
         buttonSortDescending = findViewById(R.id.buttonSortDescending);
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Create and start Totals view when user taps the "Totals" button
         buttonTotals.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), ArrayOperationsTotalsActivity.class);
@@ -67,13 +69,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 textViewArray.setText("");
                 numberArrayString = "";
+                // Sort items in array in ascending order
                 Collections.sort(numberArray);
 
-                //Add each number in ArrayList to a string through iteration
+                // Add each number in ArrayList to a string through iteration
                 for(int j=0;j<25;j++){
                     numberArrayString += numberArray.get(j) + ", ";
                 }
 
+                // Add the array string to the textbox
                 textViewArray.setText(numberArrayString);
 
             }
@@ -83,13 +87,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 textViewArray.setText("");
                 numberArrayString = "";
+                // Sort items in array in descending order
                 Collections.reverse(numberArray);
 
-                //Add each number in ArrayList to a string through iteration
+                // Add each number in ArrayList to a string through iteration
                 for(int j=0;j<25;j++){
                     numberArrayString += numberArray.get(j) + ", ";
                 }
 
+                // Add the array string to the textbox
                 textViewArray.setText(numberArrayString);
             }
         });
@@ -99,23 +105,25 @@ public class MainActivity extends AppCompatActivity {
     public void generateNewNumbers(){
         clearAndReset();
 
+        // Create 25 random numbers and add them to numberArray through iteration
         for(int i=0;i<25;i++){
             int newNumber = (int)(Math.random() * 99 + 1);
             numberArray.add(newNumber);
         }
 
-        //Add each number in ArrayList to a string through iteration
+        // Add each number in ArrayList to a string through iteration
         for(int j=0;j<25;j++){
             numberArrayString += numberArray.get(j) + ", ";
         }
 
-        //Display string
+        // Display string
         textViewArray.setText(numberArrayString);
 
         calculateTotals();
     }
 
     public void calculateTotals(){
+        // Through iteration, calculate sum, largest number, and smallest number
         for (int i=0; i<numberArray.size();i++){
             int currentNumber = numberArray.get(i);
             sum += currentNumber;
@@ -130,10 +138,13 @@ public class MainActivity extends AppCompatActivity {
                 smallest = currentNumber;
             }
         }
+
+        //Calculate the average and range of all items in array
         avg = sum/numberArray.size();
         range = largest - smallest;
     }
 
+    // Clear array and reset program variables
     public void clearAndReset(){
         numberArray.clear();
         numberArrayString = "";
