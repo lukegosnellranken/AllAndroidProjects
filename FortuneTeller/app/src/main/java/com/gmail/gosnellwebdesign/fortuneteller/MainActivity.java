@@ -42,14 +42,17 @@ public class MainActivity extends AppCompatActivity {
         buttonReveal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Create random number variable
                 randomFortuneNumber = (int )(Math.random() * 12 + 1);
 
+                // Iterate through number of items in fortune array and set item in position of the random number variable to user's fortune
                 for(int i=0; i<fortunes.length; i++){
                     if (i == randomFortuneNumber){
                         randomFortune=fortunes[i];
                     }
                 }
 
+                // Send user's fortune to OpenCookieActivity
                 Intent intent = new Intent(getApplicationContext(), OpenCookieActivity.class);
                 intent.putExtra("randomFortune", randomFortune);
                 startActivity(intent);

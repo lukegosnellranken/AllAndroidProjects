@@ -7,6 +7,7 @@ import retrofit2.http.GET;
 
 public interface RetrofitArrayApi {
 
+    // Address for get requests
     @GET("wp-json/wp/v2/story")
     Call<List<WPPost>> getPostInfo();
     /// to make call to dynamic URL

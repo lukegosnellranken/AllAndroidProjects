@@ -28,12 +28,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
         public ImageTypeViewHolder(View itemView) {
             super(itemView);
 
+            // Widget references
             this.title = (TextView)  itemView.findViewById(R.id.title);
             this.subtitle = (TextView) itemView.findViewById(R.id.subtitle);
             this.imageView = (ImageView) itemView.findViewById(R.id.Icon);
         }
     }
     @Override
+    // Set parent group for posts and return to view
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from( parent.getContext()).inflate(R.layout.postdetails, parent, false);
         return new ImageTypeViewHolder(view) ;
@@ -43,11 +45,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         final Model object = dataset.get(position);
 
+        // Set title and subtitle of posts
         ( (ImageTypeViewHolder) holder).title.setText( object.title );
         ( (ImageTypeViewHolder) holder).subtitle.setText( object.subtitle );
 
         ( (ImageTypeViewHolder) holder).title.setOnClickListener(new View.OnClickListener() {
             @Override
+            // Set title for intent which forwards to post activity screens
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, WPPostDetails.class);
                 intent.putExtra("itemPosition", position);
@@ -56,6 +60,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
         });
         ( (ImageTypeViewHolder) holder).subtitle.setOnClickListener(new View.OnClickListener() {
             @Override
+            // Set subtitle for intent which forwards to post activity screens
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, WPPostDetails.class);
                 intent.putExtra("itemPosition", position);
@@ -64,6 +69,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
         });
         ( (ImageTypeViewHolder) holder).imageView.setOnClickListener(new View.OnClickListener() {
             @Override
+            // Set image for intent which forwards to post activity screens
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, WPPostDetails.class);
                 intent.putExtra("itemPosition", position);

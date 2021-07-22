@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Widget references
         editTextBillAmount = findViewById(R.id.editTextBillAmount);
         editTextTip = findViewById(R.id.editTextTip);
         editTextTotal = findViewById(R.id.editTextTotal);
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         buttonFifteenPercent = findViewById(R.id.buttonFifteenPercent);
         buttonTwentyPercent = findViewById(R.id.buttonTwentyPercent);
 
+        // User taps tip percentage options whose values are passed as params to calculateTotals
         buttonTenPercent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         double tip = billAmount * percentage;
         double total = billAmount + tip;
 
+        // Set text boxes to tip amount and total
         editTextTip.setText(String.format("$%.2f", tip));
         editTextTotal.setText(String.format("$%.2f", total));
     }

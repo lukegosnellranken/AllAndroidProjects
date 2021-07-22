@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Program Constants
+    // Program Constants
     final int MINHEIGHT = 12;
     final int MAXHEIGHT = 96;
     final int MINWEIGHT = 1;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     final double MINOVER = 25;
     final double MINOBESE = 30;
 
-    //Program Widget Variables
+    // Program Widget Variables
     EditText textHeight;
     EditText textWeight;
     Button buttonCalculate;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonGRPSTATS;
     DecimalFormat bmiFormat = new DecimalFormat("##0.00");
 
-    //Program Non-Widget Variables
+    // Program Non-Widget Variables
     int totalUnderweight = 0;
     int getTotalOptimalWeight = 0;
     int totalOverweight = 0;
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Assign variables to view elements
         textHeight = findViewById(R.id.textHeight);
         textWeight = findViewById(R.id.textWeight);
         buttonCalculate = findViewById(R.id.buttonCalculate);
@@ -89,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Unutilized "Group Stats" button
         buttonGRPSTATS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -99,10 +101,10 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean validateHeight(){
         try{
-            //Read value from editTextHeight
+            // Read value from editTextHeight
             height = Integer.parseInt(textHeight.getText().toString());
 
-            //Make sure height is within range
+            // Validate range of inputted height
             while ((height < MINHEIGHT) || (height > MAXHEIGHT)){
                 height = 0;
                 textHeight.setText("");
@@ -113,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         catch (NumberFormatException nfe){
+            // Show toast for invalid input
             Toast toast = Toast.makeText(getApplicationContext(), OORHEIGHT, Toast.LENGTH_LONG);
             toast.show();
             return false;
@@ -121,10 +124,10 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean validateWeight(){
         try{
-            //Read value from editTextHeight
+            // Read value from editTextHeight
             weight = Integer.parseInt(textWeight.getText().toString());
 
-            //Make sure height is within range
+            // Validate range of  inputted weight
             while ((weight < MINWEIGHT) || (height > MAXWEIGHT)){
                 weight = 0;
                 textWeight.setText("");
@@ -135,12 +138,14 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         catch (NumberFormatException nfe){
+            // Show toast for invalid input
             Toast toast = Toast.makeText(getApplicationContext(), OORWEIGHT, Toast.LENGTH_LONG);
             toast.show();
             return false;
         }
     }
 
+    // Calculate BMI
     private double calculateBMI(){
         return 703 * weight / (Math.pow(height, 2));
     }
@@ -148,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
     private String calculateBMIStatus(){
         String s = "";
 
+        // Find BMI status and set to s
         if (bmi < MINOPTIMAL) {
             ++totalUnderweight;
             s = "Underweight";
@@ -168,12 +174,14 @@ public class MainActivity extends AppCompatActivity {
         return s;
     }
 
+    // Clear all input from text boxes
     private void clearAll(){
         textHeight.setText("");
         textWeight.setText("");
         textHeight.requestFocus();
     }
 
+    // Show the stats of the most recently calculated individual
     private void showIDVStats(){
         String indStr = "Inputted Height: " + height;
         indStr += "\nInputted Weight: " + weight;

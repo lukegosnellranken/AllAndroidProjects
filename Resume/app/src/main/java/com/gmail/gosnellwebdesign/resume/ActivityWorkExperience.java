@@ -20,9 +20,11 @@ public class ActivityWorkExperience extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_experience);
 
+        // Widget references
         buttonWorkExperienceBackToMain = findViewById(R.id.buttonWorkExperienceBackToMain);
         textViewWorkExperienceInfo = findViewById(R.id.textViewWorkExperienceInfo);
 
+        // Convert HTML to text
         ConvertHTML = Html.fromHtml(
     "<strong><u>W O R K  E X P E R I E N C E</u></strong><br />\n" +
             "<br>" +
@@ -48,8 +50,10 @@ public class ActivityWorkExperience extends AppCompatActivity {
             "I help kids learn how to code using primarily Scratch and JavaScript. I have put together many presentations and helped with several events to help advertise the business, as well as offered my input in how to improve our services.\n"
         );
 
+        // Set textView to ConvertHTML
         textViewWorkExperienceInfo.setText(ConvertHTML);
 
+        // Back to MainActivity
         buttonWorkExperienceBackToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){

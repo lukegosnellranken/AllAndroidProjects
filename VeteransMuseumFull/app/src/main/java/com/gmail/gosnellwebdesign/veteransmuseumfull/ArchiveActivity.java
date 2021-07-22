@@ -33,6 +33,7 @@ public class ArchiveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_archive);
 
+        // Widget references
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
 
@@ -40,16 +41,17 @@ public class ArchiveActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
 
         list = new ArrayList<Model>();
-        /// call retrofill
+        /// Call retrofill
         getRetrofit();
 
+        // Set adapter
         adapter = new RecyclerViewAdapter( list, ArchiveActivity.this);
-
         recyclerView.setAdapter(adapter);
 
     }
     public void getRetrofit(){
 
+        // Retrofit for pulling from WordPress REST API
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseURL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -58,6 +60,7 @@ public class ArchiveActivity extends AppCompatActivity {
         RetrofitArrayApi service = retrofit.create(RetrofitArrayApi.class);
         Call<List<WPPost>>  call = service.getPostInfo();
 
+        // Pull JSON data from WordPress REST API from veterans website to display a list of veterans
         call.enqueue(new Callback<List<WPPost>>() {
             @Override
             public void onResponse(Call<List<WPPost>> call, Response<List<WPPost>> response) {
@@ -89,6 +92,7 @@ public class ArchiveActivity extends AppCompatActivity {
         });
 
     }
+    // Return the list of veterans
     public static List<WPPost> getList(){
         return  mListPost;
     }

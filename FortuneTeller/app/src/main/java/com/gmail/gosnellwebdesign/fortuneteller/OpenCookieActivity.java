@@ -19,14 +19,18 @@ public class OpenCookieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_cookie);
 
+        // Widget references
         buttonBackToMain = findViewById(R.id.buttonBackToMain);
         textViewFortune = findViewById(R.id.textViewFortune);
 
+        // Get intent from MainActivity
         Intent intent = getIntent();
         String randomFortune = intent.getStringExtra("randomFortune");
 
+        // Set text widget to the user's fortune
         textViewFortune.setText(randomFortune);
 
+        // Send user back to MainActivity view when button is tapped
         buttonBackToMain.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 finish();

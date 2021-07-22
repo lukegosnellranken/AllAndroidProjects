@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Widget references
         editTextBillAmount = findViewById(R.id.editTextBillAmount);
         editTextTip = findViewById(R.id.editTextTip);
         editTextTotal = findViewById(R.id.editTextTotal);
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
 
+                    // Calculate tip amount when user lets go of slider
                     @Override
                     public void onStopTrackingTouch(SeekBar seekBar) {
                         calculateTotals(seekBarTipAmount.getProgress());
@@ -82,9 +84,11 @@ public class MainActivity extends AppCompatActivity {
         double tip = billAmount * (percentage/100.0);
         double total = billAmount + tip;
 
+        // Set text boxes to tip amount and total
         editTextTip.setText(String.format("$%.2f", tip));
         editTextTotal.setText(String.format("$%.2f", total));
 
+        // Build toast
         t  = Toast.makeText(getApplicationContext(), "The Current Tip Percentage is: " + percentage + "%", android.widget.Toast.LENGTH_LONG);
         t.show();
     }

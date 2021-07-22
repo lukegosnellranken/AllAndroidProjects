@@ -19,10 +19,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Widget references
         textViewScan = findViewById(R.id.textViewScan);
         textViewEnterArchive = findViewById(R.id.textViewEnterArchive);
         textViewVisitSite = findViewById(R.id.textViewVisitSite);
 
+        // Intent for QR scanner
         textViewScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Intent for archive viewer
         textViewEnterArchive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Intent for stcharlescountyveteransmuseum.org
         textViewVisitSite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -15,7 +15,7 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Program Constants
+    // Program Constants
     public final double MINMILESANDKILOS = 0.1;
     public final double MAXMILESANDKILOS = 9999;
     public final double MILESTOKILOMETERSRATIO = 1.6093;
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public final String NOINPUT = "No value inputted";
     public final String INVALIDINPUT = "Input must be between " + MINMILESANDKILOS + " and " + MAXMILESANDKILOS;
 
-    //Program variables
+    // Program variables
     EditText editTextUserValue;
     TextView textViewConversionTitle;
     TextView textViewOutput;
@@ -47,13 +47,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Widget references
         textViewConversionTitle = (TextView) findViewById(R.id.textViewConversionTitle);
         textViewOutput = (TextView) findViewById(R.id.textViewOutput);
         editTextUserValue = (EditText) findViewById(R.id.editTextUserValue);
         buttonMilesToKilo = (Button) findViewById(R.id.buttonMilesToKilo);
         buttonKiloToMiles = (Button) findViewById(R.id.buttonKiloToMiles);
 
-        //MILES TO KILOMETERS button
+        // MILES TO KILOMETERS button
         buttonMilesToKilo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,16 +63,16 @@ public class MainActivity extends AppCompatActivity {
                 isNotEmpty = checkIfEmpty();
 
                 if (isNotEmpty){
-                    //String is not empty
+                    // String is not empty
                     isValid = checkIfValid();
 
                     if (isValid){
-                        //String is valid
+                        // String is valid
 
                         getAndConvertToKilometers();
                     }
                     else{
-                        //String is not valid
+                        // String is not valid
                         miles = 0;
                         kilos = 0;
                         editTextUserValue.setText("");
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    //String is empty
+                    // String is empty
                     miles = 0;
                     kilos = 0;
                     editTextUserValue.setText("");
@@ -95,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
 
             public boolean checkIfEmpty() {
-
 
                 if (editTextUserValue.getText().toString().isEmpty()) {
 
@@ -118,16 +118,16 @@ public class MainActivity extends AppCompatActivity {
             }
 
             private void getAndConvertToKilometers() {
-                //Calculate M to K
+                // Calculate M to K
                 kilos = miles * MILESTOKILOMETERSRATIO;
 
                 kilosString = conversionFormat.format(kilos);
                 milesString = conversionFormat.format(miles);
 
-                //Output kilos
+                // Output kilos
                 textViewOutput.setText(kilosString);
 
-                //Build toast
+                // Build toast
                 outputStr = "There are " + kilosString + " kilometers in " + milesString + " miles.";
                 Toast toast = Toast.makeText(getApplicationContext(), outputStr, Toast.LENGTH_LONG);
                 toast.show();
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //KILOMETERS TO MILES button
+        // KILOMETERS TO MILES button
         buttonKiloToMiles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,16 +144,16 @@ public class MainActivity extends AppCompatActivity {
                 isNotEmpty = checkIfEmpty();
 
                 if (isNotEmpty){
-                    //String is not empty
+                    // String is not empty
                     isValid = checkIfValid();
 
                     if (isValid){
-                        //String is valid
+                        // String is valid
 
                         getAndConvertToMiles();
                     }
                     else{
-                        //String is not valid
+                        // String is not valid
                         miles = 0;
                         kilos = 0;
                         editTextUserValue.setText("");
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    //String is empty
+                    // String is empty
                     miles = 0;
                     kilos = 0;
                     editTextUserValue.setText("");
@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             private void getAndConvertToMiles() {
-                //Calculate K to M
+                // Calculate K to M
                 miles = kilos * KILOMETERSTOMILESRATIO;
 
                 kilosString = conversionFormat.format(kilos);

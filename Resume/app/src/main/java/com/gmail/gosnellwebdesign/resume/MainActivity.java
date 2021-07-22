@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Program Widget Variables
+    // Program Variables
     Button buttonEducation;
     Button buttonWorkExperience;
     Button buttonCallMe;
@@ -23,11 +23,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Widget references
         buttonEducation = findViewById(R.id.buttonEducation);
         buttonWorkExperience = findViewById(R.id.buttonWorkExperience);
         buttonEmailMe = findViewById(R.id.buttonEmailMe);
         buttonCallMe = findViewById(R.id.buttonCallMe);
 
+        // Open ActivityEducation
         buttonEducation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Open ActivityWorkExperience
         buttonWorkExperience.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        // Open phone
         buttonCallMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -54,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Open email
         buttonEmailMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){

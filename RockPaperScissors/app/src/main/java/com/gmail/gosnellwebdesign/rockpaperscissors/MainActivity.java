@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Program constants
+    // Program constants
     final String rock = "Rock";
     final String paper = "Paper";
     final String scissors = "Scissors";
 
-    //Program variables
+    // Program variables
     ImageView imageViewRock;
     ImageView imageViewPaper;
     ImageView imageViewScissors;
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Widget references
         imageViewRock = findViewById(R.id.imageViewRock);
         imageViewPaper = findViewById(R.id.imageViewPaper);
         imageViewScissors = findViewById(R.id.imageViewScissors);
@@ -47,15 +48,16 @@ public class MainActivity extends AppCompatActivity {
         textViewWinner = findViewById(R.id. textViewWinner);
         buttonTotals = findViewById(R.id.buttonTotals);
 
-        //Disable the Totals button
+        // Disable the Totals button
         buttonTotals.setEnabled(false);
 
-        //Set computer choice
+        // Set computer choice
         setComputerChoice();
 
-        //Set winnerIs textView to empty until user plays
+        // Set winnerIs textView to empty until user plays
         textViewWinnersIs.setText("");
 
+        // Setting userChoice depending on image tapped
         imageViewRock.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 buttonClicked();
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonTotals.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                //Intent
+                // Intent for ActivityTotals
                 Intent intent = new Intent(getApplicationContext(), ActivityTotals.class);
                 intent.putExtra("numComputerWins", numComputerWins);
                 intent.putExtra("numUserWins", numUserWins);
@@ -97,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         buttonTotals.setEnabled(true);
     }
 
+    // Set computer choice depending on random number generated
     public void setComputerChoice(){
         int randomNumber = (int )(Math.random() * 3 + 1);
 
@@ -110,10 +113,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculateWinner(){
-        //Set winerIs TextView
+        // Set winerIs TextView
         textViewWinnersIs.setText("The winner is...");
 
-        //Set user text
+        // Set user text
         if (userChoice == rock){
             textViewUserChoiceDisplay.setText(rock);
         }
@@ -124,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             textViewUserChoiceDisplay.setText(scissors);
         }
 
-        //Set computer text
+        // Set computer text
         if (computerChoice == rock){
             textViewComputerChoiceDisplay.setText(rock);
         }
@@ -135,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
             textViewComputerChoiceDisplay.setText(scissors);
         }
 
-        //Calculate winner
+        // Calculate winner
         if ((userChoice == rock && computerChoice == scissors) || (userChoice == paper && computerChoice == rock) || (userChoice == scissors && computerChoice == paper)){
             numUserWins++;
             textViewWinner.setText("User");
@@ -148,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
             textViewWinner.setText("Draw");
         }
 
-        //Reset
+        // Reset
         userChoice = "";
         setComputerChoice();
     }

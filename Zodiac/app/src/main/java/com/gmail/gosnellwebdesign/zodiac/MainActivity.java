@@ -24,7 +24,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Program constants
+    // Program constants
     public final int currentYear = Calendar.getInstance().get(Calendar.YEAR);
     public final int MAXMONTH = 12;
     public final int MINMONTH = 1;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public final String NOINPUT = "You must enter a month, a day, and a year.";
     public final String INVALIDINPUT = "Invalid input.";
 
-    //Program variables
+    // Program variables
     EditText editTextMonth;
     EditText editTextDay;
     EditText editTextYear;
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Widget references
         editTextMonth = findViewById(R.id.editTextMonth);
         editTextDay = findViewById(R.id.editTextDay);
         editTextYear = findViewById(R.id.editTextYear);
@@ -72,15 +73,15 @@ public class MainActivity extends AppCompatActivity {
         buttonZodiac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // validate and format inputted date
-                //Check to see if empty
+                // Validate and format inputted date
+                // Check to see if empty
                 try {
                     validateInput();
                     if (isDateValid) {
                         createVariablesForIntent();
                     }
                 } catch (NumberFormatException nfe) {
-                    //Build toast
+                    // Build toast
                     Toast toast = Toast.makeText(getApplicationContext(), NOINPUT, Toast.LENGTH_LONG);
 
                     if (editTextMonth.getText().toString() == "") {
@@ -114,12 +115,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void validateInput() {
-        //ASSIGN VARIABLES
+        // ASSIGN VARIABLES
         inputtedMonth = Integer.parseInt(editTextMonth.getText().toString());
         inputtedDay = Integer.parseInt(editTextDay.getText().toString());
         inputtedYear = Integer.parseInt(editTextYear.getText().toString());
 
-        //VALIDATE MONTH
+        // VALIDATE MONTH
         if ((inputtedMonth > MAXMONTH) || (inputtedMonth < MINMONTH)) {
             isDateValid = false;
             //Build toast
@@ -130,11 +131,11 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        //VALIDATE DAY
+        // VALIDATE DAY (check for months with 31 days, as well as for leap years depending on year)
         if ((inputtedMonth == 1) || (inputtedMonth == 3) || (inputtedMonth == 5) || (inputtedMonth == 7) || (inputtedMonth == 8) || (inputtedMonth == 10) || (inputtedMonth == 12)) {
             if ((inputtedDay < MINDAY) || (inputtedDay > MAXDAYTHIRTYONE)) {
                 isDateValid = false;
-                //Build toast
+                // Build toast
                 Toast toast = Toast.makeText(getApplicationContext(), INVALIDINPUT, Toast.LENGTH_LONG);
                 toast.show();
                 editTextDay.setText("");
@@ -150,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else {
                         isDateValid = false;
-                        //Build toast
+                        // Build toast
                         Toast toast = Toast.makeText(getApplicationContext(), INVALIDINPUT, Toast.LENGTH_LONG);
                         toast.show();
                         editTextDay.setText("");
@@ -162,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         } else if ((inputtedMonth == 4) || (inputtedMonth == 6) || (inputtedMonth == 9) || (inputtedMonth == 11)) {
             if ((inputtedDay < MINDAY) || (inputtedDay > MAXDAYTHIRTY)) {
                 isDateValid = false;
-                //Build toast
+                // Build toast
                 Toast toast = Toast.makeText(getApplicationContext(), INVALIDINPUT, Toast.LENGTH_LONG);
                 toast.show();
                 editTextDay.setText("");
@@ -171,10 +172,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        //VALIDATE YEAR
+        // VALIDATE YEAR
         if ((inputtedYear > MAXYEAR) || (inputtedYear < MINYEAR)) {
             isDateValid = false;
-            //Build toast
+            // Build toast
             Toast toast = Toast.makeText(getApplicationContext(), INVALIDINPUT, Toast.LENGTH_LONG);
             toast.show();
             editTextYear.setText("");
@@ -188,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
     public void createVariablesForIntent() {
         //DATE IS VALIDATED
 
-        //Set validated variables
+        // Set validated variables
         validatedMonth = editTextMonth.getText().toString();
         validatedDay = editTextDay.getText().toString();
         validatedYear = editTextYear.getText().toString();
@@ -201,18 +202,18 @@ public class MainActivity extends AppCompatActivity {
             validatedDay = String.format("%02d", Integer.valueOf(validatedDay));
         }
 
-        // convert user's inputted date to string
+        // Convert user's inputted date to string
         fullInputtedDate = validatedMonth + "/" + validatedDay + "/" + validatedYear;
 
-        // find which week day the user was born
+        // Find which week day the user was born
         userWeekday = LocalDate.parse(fullInputtedDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")).getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.US);
 
-        // find the age in years of the user
+        // Find the age in years of the user
         LocalDate start = LocalDate.of(inputtedYear, inputtedMonth, inputtedDay);
         LocalDate end = LocalDate.now();
         userAge = String.valueOf(Math.toIntExact(ChronoUnit.YEARS.between(start, end)));
 
-        // find the sign of the user
+        // Find the sign of the user
         if (((inputtedMonth == 1) && inputtedDay >= 20) || ((inputtedMonth == 2) && inputtedDay <= 18)) {
             sign = "aries";
         } else if (((inputtedMonth == 2) && inputtedDay >= 20) || ((inputtedMonth == 3) && inputtedDay <= 20)) {
@@ -248,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
                                         Toast.LENGTH_LONG);
         toast.show();
 
-        //Create intent
+        // Create intent
         Intent intent = new Intent(getApplicationContext(), ZodiacScreenActivity.class);
         intent.putExtra("fullInputtedDate", fullInputtedDate);
         intent.putExtra("userWeekday", userWeekday);

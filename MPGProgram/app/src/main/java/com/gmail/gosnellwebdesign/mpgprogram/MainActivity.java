@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Program Constants
+    // Program Constants
     public final int MINMILESDRIVEN = 1;
     public final int MAXMILESDRIVEN = 100;
     public final int MINGALLONSUSED = 1;
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     public final String NOMILESINPUT = "NO MILES DRIVEN INPUTTED! RESETTING AND RETURNING.";
     public final String NOGALLONSINPUT = "NO GALLONS USED INPUTTED! RESETTING AND RETURNING.";
 
-    //Program variables
+    // Program variables
     EditText editTextMiles;
     EditText editTextGallons;
     Button buttonCalculate;
@@ -31,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        //FIX - TURN TEXTVIEWS TO EDITTEXTS
+        // Widget references
         editTextMiles = (EditText) findViewById(R.id.editMilesDriven);
         editTextGallons = (EditText) findViewById(R.id.editGallonsUsed);
         buttonCalculate = (Button) findViewById(R.id.buttonCalculate);
@@ -45,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 double mpg = 0;
 
                 try{
-                    //Read value from first edit text
-                    // //attempt to parse and put in variable miles
+                    // Read value from first edit text
+                    // Attempt to parse and put in variable miles
                     miles = Double.parseDouble(editTextMiles.getText().toString());
                     while ((miles < MINMILESDRIVEN) || miles > MAXMILESDRIVEN){
                         miles = 0;
@@ -56,16 +55,17 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 catch (NumberFormatException nfe) {
+                    // Build toast for no input
                     Toast toast = Toast.makeText(getApplicationContext(), NOMILESINPUT, Toast.LENGTH_LONG);
                     toast.show();;
                     return;
                 }
 
-                //If this point is reached, miles were inputted and valid.
+                // If this point is reached, miles were inputted and valid.
 
                 try{
-                    //Read value from first edit text
-                    // //attempt to parse and put in variable miles
+                    // Read value from first edit text
+                    // Attempt to parse and put in variable gallons
                     gallons = Double.parseDouble(editTextGallons.getText().toString());
                     while ((gallons < MINGALLONSUSED) || miles > MAXGALLONSUSED){
                         gallons = 0;

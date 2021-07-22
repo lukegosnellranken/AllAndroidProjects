@@ -10,13 +10,13 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Define program constants
+    // Define program constants
     String name = "";
     EditText editTextName;
     Button buttonCalculate;
 
 
-    //TWO SEPARATE WAYS TO RUN THIS PROGRAM
+    // TWO SEPARATE WAYS TO RUN THIS PROGRAM
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +42,12 @@ public class MainActivity extends AppCompatActivity {
         public void sayHello(View v){
             name = editTextName.getText().toString();
 
-            //Check for blank name
+            // Check for blank name
             if (name.isEmpty()){
                 name = "name-shy";
             }
 
+            // Greet user via toast
             Toast toast = Toast.makeText(getApplicationContext(), "Hello " + name, Toast.LENGTH_LONG);
             toast.show();
         }

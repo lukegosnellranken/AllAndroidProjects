@@ -123,13 +123,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //References to widgets
+        // Reference widgets
         spinnerFrom = findViewById(R.id.spinnerFrom);
         spinnerTo = findViewById(R.id.spinnerTo);
         editTextAmount = findViewById(R.id.editTextAmountToConvert);
         buttonConvert = findViewById(R.id.buttonConvert);
 
-        //Initialize variables
+        // Initialize variables
         keepGoing = true;
         inputtedAmount = 0.0;
         conversionRate = 0.0;
@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         convertedFrom = "";
         convertTo = "";
 
+        // Adapter for spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this, R.array.currencies_array,
                 android.R.layout.simple_spinner_item);
@@ -146,10 +147,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 android.R.layout.simple_spinner_dropdown_item);
 
 
-        //Set adapter to spinners
+        // Set adapter to spinners
         spinnerFrom.setAdapter(adapter);
         spinnerTo.setAdapter(adapter);
 
+        // Check for no input before attempting conversion
         buttonConvert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,9 +177,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void doTheConversion(){
+        // Set inputs to variables
         from = spinnerFrom.getSelectedItemPosition();
         to = spinnerTo.getSelectedItemPosition();
 
+        // Switch cases for possible conversions
         switch (from) {
             case 0:
                 convertedFrom = " US Dollars";
@@ -493,6 +497,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
                 break;
         }
+        // Calculate the converted amount and show in a toast
         convertedAmount = inputtedAmount * conversionRate;
         t = Toast.makeText(getApplicationContext(),
                             df.format(inputtedAmount).toString() + " " + convertedFrom + " = " +
@@ -501,6 +506,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         t.show();
         }
 
+        // Switch case for name of currency
         private String toType(int fromType) {
             String retVal = "";
 

@@ -33,6 +33,8 @@ public class ScannerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scanner);
+
+        // Widget references
         scannerView = findViewById(R.id.scannerView);
         codeScanner = new CodeScanner(this, scannerView);
         textViewQRResult = findViewById(R.id.textViewQRResult);
@@ -41,6 +43,7 @@ public class ScannerActivity extends AppCompatActivity {
 
         codeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
+            // Get codeString from recognized QR codes
             public void onDecoded(@NonNull final Result result) {
                 runOnUiThread(new Runnable() {
                     @Override
@@ -53,6 +56,7 @@ public class ScannerActivity extends AppCompatActivity {
             }
         });
 
+        // Open activity preview
         scannerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +72,7 @@ public class ScannerActivity extends AppCompatActivity {
         requestForCamera();
     }
 
+    // Request user's permission to use camera in-app
     private void requestForCamera() {
         Dexter.withActivity(this).withPermission(Manifest.permission.CAMERA).withListener(new PermissionListener() {
             @Override
@@ -87,6 +92,7 @@ public class ScannerActivity extends AppCompatActivity {
         }).check();
     }
 
+    // Open link from QR code
     private void processQRResult() {
         //Intent to new screen that displays HTTP requested WP content
         //If (QR code) then (display specific content associated with QR code)

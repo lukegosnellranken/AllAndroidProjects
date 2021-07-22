@@ -14,9 +14,9 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 public class ZodiacScreenActivity extends AppCompatActivity {
-    //Program constants
+    // Program constants
 
-    //Program variables
+    // Program variables
     ImageView imageViewSign;
     TextView textViewUserBirthDate;
     TextView textViewUserBirthday;
@@ -43,6 +43,7 @@ public class ZodiacScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zodiac_screen);
 
+        // Widget references
         imageViewSign = findViewById(R.id.imageViewSign);
         textViewUserBirthDate = findViewById(R.id.textViewUserBirthDate);
         textViewUserBirthday = findViewById(R.id.textViewUserBirthday);
@@ -50,6 +51,7 @@ public class ZodiacScreenActivity extends AppCompatActivity {
         textViewAbout = findViewById(R.id.textViewAbout);
         buttonBack = findViewById(R.id.buttonBack);
 
+        // Get intent
         Intent intent = getIntent();
         String fullInputtedDate = intent.getExtras().getString("fullInputtedDate");
         String userWeekday = intent.getExtras().getString("userWeekday");
@@ -60,6 +62,7 @@ public class ZodiacScreenActivity extends AppCompatActivity {
         textViewUserBirthday.setText(userWeekday);
         textViewUserAge.setText(userAge);
 
+        // Check for each sign and display image and text
         if (sign.equals("aquarius")){
             imageViewSign.setImageResource(R.drawable.aquarius);
             textViewAbout.setText(getString(R.string.aquariusInfo));
@@ -109,7 +112,7 @@ public class ZodiacScreenActivity extends AppCompatActivity {
             textViewAbout.setText(getString(R.string.capricornInfo));
         }
 
-
+        // Back to MainActivity
         buttonBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 finish();

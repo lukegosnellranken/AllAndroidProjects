@@ -18,7 +18,7 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity  implements AdapterView.OnItemSelectedListener {
 
 
-    //Program constants
+    // Program constants
     public final double MININPUT = 0;
     public final double MAXINPUT = 99999;
     public final String NOOPERATOR = "No operator selected.";
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
     public final String DIVIDEBYZERO = "Illegal attempt to divide by 0.";
     public final DecimalFormat answerFormat = new DecimalFormat("###,###,##0.00");
 
-    //Program variables
+    // Program variables
     Spinner spinnerOperators;
     EditText editTextFirstNumber;
     EditText editTextSecondNumber;
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Set variables to view elements
         editTextFirstNumber = (EditText) findViewById(R.id.editTextFirstNumber);
         editTextSecondNumber = (EditText) findViewById(R.id.editTextSecondNumber);
         textViewAnswer = (TextView) findViewById(R.id.textViewAnswer);
@@ -61,13 +62,13 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
         Spinner spinner = findViewById(R.id.spinnerOperators);
 
+        // Adapter for spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.operators, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        //CALCULATE button
         buttonCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,30 +76,31 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
                 isNotEmpty = checkIfEmpty();
 
                 if (isNotEmpty){
-                    //String is not empty
+                    // String is not empty
                     isValid = checkIfValid();
 
                     if (isValid){
-                        //String is valid
+                        // String is valid
                         isNotDividedByZero = checkDBZError();
 
                         if (isNotDividedByZero) {
                             calculateAnswer();
                         }
                         else{
+                            // Indivisible input
                             Toast toast = Toast.makeText(getApplicationContext(), DIVIDEBYZERO, Toast.LENGTH_LONG);
                             toast.show();
                         }
                     }
                     else{
-                        //String is not valid
+                        // String is not valid
                         clearAndSetFocus();
                         Toast toast = Toast.makeText(getApplicationContext(), INVALIDINPUT, Toast.LENGTH_LONG);
                         toast.show();
                     }
                 }
                 else {
-                    //String is empty
+                    // String is empty
                     clearAndSetFocus();
                     Toast toast = Toast.makeText(getApplicationContext(), NOINPUT, Toast.LENGTH_LONG);
                     toast.show();
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
             public boolean checkIfEmpty() {
 
-
+                // validation for empty strings
                 if (editTextFirstNumber.getText().toString().isEmpty()) {
 
                     return false;
@@ -123,9 +125,11 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
             public boolean checkIfValid(){
 
+                // Convert strings to doubles
                 firstNumber = Double.parseDouble(editTextFirstNumber.getText().toString());
                 secondNumber = Double.valueOf(editTextSecondNumber.getText().toString());
 
+                // Check for out of range input
                 if ((firstNumber < MININPUT) || (firstNumber > MAXINPUT)){
 
                     return false;
@@ -139,6 +143,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
                 return true;
             }
 
+            // Divide by zero check
             public boolean checkDBZError(){
                 if (operator == "divide" && secondNumber == 0){
                     return false;

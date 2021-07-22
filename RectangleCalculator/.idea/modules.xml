@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RectangleCalculator.iml" filepath="$PROJECT_DIR$/RectangleCalculator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RectangleCalculator.iml" filepath="$PROJECT_DIR$/.idea/modules/RectangleCalculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/RectangleCalculator.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/RectangleCalculator.app.iml" />
     </modules>
   </component>
 </project>

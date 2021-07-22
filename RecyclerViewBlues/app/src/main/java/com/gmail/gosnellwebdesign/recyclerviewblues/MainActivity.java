@@ -21,14 +21,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Widget references
         recyclerViewBluesTeamInfo = findViewById(R.id.recyclerViewBluesTeamInfo);
         setTeamData();
+
+        // Set adapter
         adapter = new HockeyTeamAdapter(teamList);
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplicationContext());
         recyclerViewBluesTeamInfo.setLayoutManager(manager);
         recyclerViewBluesTeamInfo.setAdapter(adapter);
     }
 
+    // Data for Blues hockey players
     private void setTeamData()
     {
         HockeyTeam team = new HockeyTeam("Jake Allen", "Goalie", "34");

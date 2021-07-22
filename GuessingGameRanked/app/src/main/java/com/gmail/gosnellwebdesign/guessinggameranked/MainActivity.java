@@ -15,13 +15,13 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Program constants
+    // Program constants
     public final int MAXGUESS = 100;
     public final int MINGUESS = 1;
     public final String NOGUESSINPUT = "No guess inputed.";
     public final String INVALIDINPUT = "Input must be between 1 and 100.";
 
-    //Program variables
+    // Program variables
     EditText editTextGuess;
     Button buttonSubmit;
     Button buttonClear;
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Widget references
         editTextGuess = findViewById(R.id.editTextGuess);
         buttonSubmit = findViewById(R.id.buttonSubmit);
         buttonClear = findViewById(R.id.buttonClear);
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         textViewInvalid = findViewById(R.id.textViewInvalid);
         textViewResponse = findViewById(R.id.textViewResponse);
 
-        //Disable the Rank button
+        // Disable the Rank button
         buttonRank.setEnabled(false);
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
@@ -61,14 +62,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 try{
-                    //Read value from first edit text
-                    // //attempt to parse and put in variable miles
+                    // Try to parse an integer from editEnterGuess and validate input
                     guess = Integer.parseInt(editTextGuess.getText().toString());
                     while ((guess < MINGUESS) || guess > MAXGUESS){
-                        //Build toast
+                        // Build toast for out of range input
                         Toast toast = Toast.makeText(getApplicationContext(), INVALIDINPUT, Toast.LENGTH_LONG);
                         toast.show();
 
+                        // Reset variables and widgets
                         textViewInvalid.setText(INVALIDINPUT);
                         editTextGuess.setText("");
                         editTextGuess.requestFocus();
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 catch (NumberFormatException nfe) {
-                    //Build toast
+                    // Build toast for invalid input
                     Toast toast = Toast.makeText(getApplicationContext(), NOGUESSINPUT, Toast.LENGTH_LONG);
                     toast.show();
 
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //If this point is reached, guess was inputted and valid.
 
-
+                // Show message if input has already been guessed, otherwise increment number of guesses
                 if(guessesList.contains(guess)){
                     outputStr = guess + " has already been guessed.";
                     textViewResponse.setText("");
@@ -98,10 +99,12 @@ public class MainActivity extends AppCompatActivity {
                     guessesList.add((int) guess);
                     textViewInvalid.setText("");
 
+                    // If guess is correct, output text for user
                     if (guess == answer){
                         outputStr = "Congratulations! \nYou guessed the correct number (" + answer + ")\nin " + numGuesses + " guesses!";
                         textViewResponse.setText(outputStr);
 
+                        // Assign rank to user depending on total number of guesses and increment number of times ranked in position
                         if (numGuesses <= 5){
                             rank = "Expert";
                             numExperts++;
@@ -115,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                             numNovices++;
                         }
 
+                        // Show user their rank via toast
                         Toast toast = Toast.makeText(getApplicationContext(), "Your rank is: " + rank, Toast.LENGTH_LONG);
                         toast.show();
 
@@ -122,11 +126,13 @@ public class MainActivity extends AppCompatActivity {
 
                         resetValues();
                     }
+                    // If guess is less than answer, output text for user
                     else if (guess < answer){
                         outputStr = "Your guess (" + guess + ") is too low";
                         textViewResponse.setText(outputStr);
                         numGuesses++;
                     }
+                    // If guess is greater than answer, output text for user
                     else if (guess > answer) {
                         outputStr = "Your guess (" + guess + ") is too high";
                         textViewResponse.setText(outputStr);
@@ -136,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Reset widgets and variables
         buttonClear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 editTextGuess.setText("");
@@ -145,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Send intent to RankActivity
         buttonRank.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), RankActivity.class);
@@ -153,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Send totals to TotalActivity
         buttonTotals.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), TotalsActivity.class);
@@ -165,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Reset variables and generate new random number
     public void resetValues(){
         numGuesses = 0;
         guessesList.clear();

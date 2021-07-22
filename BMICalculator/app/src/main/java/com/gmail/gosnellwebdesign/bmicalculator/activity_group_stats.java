@@ -24,13 +24,13 @@ public class activity_group_stats extends AppCompatActivity {
         setContentView(R.layout.activity_group_stats);
         textViewResults = findViewById(R.id.textViewResults);
 
-        //Get the intent of the target activity
+        // Get the intent of the target activity
         Intent intent = getIntent();
 
-        //Get the attached bundle from the intent
+        // Get the attached bundle from the intent
         Bundle extras = intent.getExtras();
 
-        //Extract the stored data from the bundle
+        // Extract the stored data from the bundle
         if (extras != null){
             if (extras.containsKey("totalUnderweight")){
                 totalUnderweight = extras.getInt("totalUnderweight", 0);

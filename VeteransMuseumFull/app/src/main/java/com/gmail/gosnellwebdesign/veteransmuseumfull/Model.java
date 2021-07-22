@@ -6,7 +6,7 @@ public class Model {
     public String title, subtitle, Image;
     public int type;
 
-
+    // Model structure for veteran posts in the archive
     public Model ( int mtype, String mtitle, String msubtitle, String image  ){
 
         this.title = mtitle;

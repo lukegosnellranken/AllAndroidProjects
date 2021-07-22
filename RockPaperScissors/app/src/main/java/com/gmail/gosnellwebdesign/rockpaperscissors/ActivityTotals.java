@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class ActivityTotals extends AppCompatActivity {
 
-    //Program variables
+    // Program variables
     Button buttonBackToMain;
     TextView textViewComputerWinsDisplay;
     TextView textViewUserWinsDisplay;
@@ -22,21 +22,24 @@ public class ActivityTotals extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_totals);
 
+        // Widget references
         buttonBackToMain = findViewById(R.id.buttonBackToMain);
         textViewComputerWinsDisplay = findViewById(R.id.textViewComputerWinsDisplay);
         textViewUserWinsDisplay = findViewById(R.id.textViewUserWinsDisplay);
         textViewTiesDisplay = findViewById(R.id.textViewTiesDisplay);
 
-        //Get intent
+        // Get intent from MainActivity
         Intent intent = getIntent();
         int numComputerWins = intent.getIntExtra("numComputerWins", 0);
         int numUserWins = intent.getIntExtra("numUserWins", 0);
         int numTies = intent.getIntExtra("numTies", 0);
 
+        // Display totals to text boxes
         textViewComputerWinsDisplay.setText(String.valueOf(numComputerWins));
         textViewUserWinsDisplay.setText(String.valueOf(numUserWins));
         textViewTiesDisplay.setText(String.valueOf(numTies));
 
+        // Back to MainActivity
         buttonBackToMain.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 finish();

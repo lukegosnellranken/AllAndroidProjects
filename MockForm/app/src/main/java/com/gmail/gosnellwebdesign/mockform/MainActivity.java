@@ -18,13 +18,13 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    //Program constants
+    // Program constants
     final String zipcodeFormat = "^[0-9]{5}(?:-[0-9]{4})?$";
     final String NIP = "NO INPUT PROVIDED";
     final String NIS = "NO ITEM SELECTED";
     final String IF = "INVALID FORMAT";
 
-    //Program variables
+    // Program variables
     EditText editTextName;
     EditText editTextAddress;
     EditText editTextCity;
@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Widget references
         editTextName = findViewById(R.id.editTextName);
         editTextAddress = findViewById(R.id.editTextAddress);
         editTextCity = findViewById(R.id.editTextCity);
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         imageViewConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //reset shiftString
+                // Reset shiftString
                 shiftString = "";
 
                 validateAll();
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     outputStr += "\nSettings: " + settings;
 
 
+                    // Build toast
                     Toast toast = Toast.makeText(getApplicationContext(), outputStr, Toast.LENGTH_LONG);
                     toast.show();
                 }
@@ -112,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+    // Check each field individually for valid content
     public void validateAll(){
         name = editTextName.getText().toString();
         address = editTextAddress.getText().toString();
@@ -142,10 +145,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             allValidated = false;
             return;
         }
-        //validate zipcode format too
-
-
-        //Validate gender
         if (radioButtonMale.isChecked()){
             gender = "Male";
         }
@@ -153,13 +152,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             gender = "Female";
         }
         else {
+            // Build toast for no selected gender
             Toast toast = Toast.makeText(getApplicationContext(), NIP + " FOR GENDER", Toast.LENGTH_LONG);
             toast.show();
             allValidated = false;
             return;
         }
 
-        //Validate shift
+        // Validate shift
         if (checkBoxMorning.isChecked()){
             shiftString += "Morning";
         }
@@ -182,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             shiftString += "Evening";
         }
 
+        // Build toast
         if (TextUtils.isEmpty(shiftString)){
             Toast toast = Toast.makeText(getApplicationContext(), NIP + " FOR SHIFT", Toast.LENGTH_LONG);
             toast.show();

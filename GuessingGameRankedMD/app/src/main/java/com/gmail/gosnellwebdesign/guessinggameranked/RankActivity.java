@@ -22,13 +22,16 @@ public class RankActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank);
 
+        // Widget references
         buttonRanksBackToMain = findViewById(R.id.buttonRanksBackToMain);
         imageViewRankStatus = findViewById(R.id.imageViewRankStatus);
         textViewRankStatus = findViewById(R.id.textViewRankStatus);
 
+        // Get intent from MainActivity
         Intent intent = getIntent();
         String rank = intent.getStringExtra("rank");
 
+        // Set image and text depending on user's rank
         if (rank.equals("Novice")){
             imageViewRankStatus.setImageResource(R.drawable.novice);
             textViewRankStatus.setText("Novice");
@@ -43,7 +46,7 @@ public class RankActivity extends AppCompatActivity {
             textViewRankStatus.setText("Expert");
         }
 
-
+        // Back to MainActivity
         buttonRanksBackToMain.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 finish();

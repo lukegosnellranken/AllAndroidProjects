@@ -35,18 +35,23 @@ public class PostActivity extends AppCompatActivity {
         final String id = getIntent().getExtras().getString("id");
         String errortest = "error test";
 
+        // Widget references
         title = (TextView) findViewById(R.id.title);
         content = (WebView)findViewById(R.id.content);
 
+        // Loading animation for posts
         progressDialog = new ProgressDialog(PostActivity.this);
         progressDialog.setMessage("Loading...");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
 
+        // Url structure for post location
         String url = "http://www.thejavaprogrammer.com/wp-json/wp/v2/posts/"+id+"?fields=title,content";
 
+        // Get request for post data
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
+            // Map post data to variables
             public void onResponse(String s) {
                 gson = new Gson();
                 mapPost = (Map<String, Object>) gson.fromJson(s, Map.class);
@@ -61,11 +66,13 @@ public class PostActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
+                // Abort post load if error occurs
                 progressDialog.dismiss();
                 Toast.makeText(PostActivity.this, id, Toast.LENGTH_LONG).show();
             }
         });
 
+        // Add posts to RequestQueue to display to screen
         RequestQueue rQueue = Volley.newRequestQueue(PostActivity.this);
         rQueue.add(request);
     }

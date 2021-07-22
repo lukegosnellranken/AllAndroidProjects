@@ -21,6 +21,7 @@ public class ActivityEducation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_education);
 
+        // Widget references
         buttonEducationBackToMain = findViewById(R.id.buttonEducationBackToMain);
         textViewEducationInfo = findViewById(R.id.textViewEducationInfo);
 
@@ -51,8 +52,10 @@ public class ActivityEducation extends AppCompatActivity {
                         "Attended Lewis and Clark Career Center CIS class 2014-16\n"
         );
 
+        // Set textView to ConvertHTML
         textViewEducationInfo.setText(ConvertHTML);
 
+        // Back to MainActivity
         buttonEducationBackToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
